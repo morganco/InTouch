@@ -73,15 +73,15 @@
 
 ## 2.2 Интерфейс пользователя  
 Экран выбора раздела.  
-![Экран выбора раздела](../../Images/Mockups/MainMenu.PNG)  
+![Экран выбора раздела](../../Images/Mockups/MainMenu.png)  
 Экран сообщений.  
-![Экран сообщений](../../Images/Mockups/Messages.PNG)  
+![Экран сообщений](../../Images/Mockups/Messages.png)  
 Экран диалога.  
-![Экран диалога](../../Images/Mockups/Dialog.PNG)
+![Экран диалога](../../Images/Mockups/Dialog.png)
 Экран профиля.  
-![Экран профиля](../../Images/Mockups/Profile.PNG)  
+![Экран профиля](../../Images/Mockups/Profile.png)  
 Экран друзей.  
-![Экран друзей](../../Images/Mockups/Friends.PNG)  
+![Экран друзей](../../Images/Mockups/Friends.png)  
 
 
 
