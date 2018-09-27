@@ -16,7 +16,7 @@
 2.3.1 [Аудитория приложения](#application_audience)   
 2.4 [Предположения и зависимости](#assumptions_and_dependencies)  
 3 [Системные требования](#system_requirements)  
-3.1 [Функциональные требования](#functional_requirements) 	 
+3.1 [Функциональные требования](#functional_requirements)  
 3.1.1 [Основные функции](#main_functions)   
 3.1.1.1 [Вход пользователя в приложение](#user_logon_to_the_application)  
 3.1.1.2 [Переход между разделами. Меню приложения](#application_menu)  
@@ -93,7 +93,7 @@
 ![Экран сообщений](../../Images/Mockups/Messages.png)  
 Экран диалога.  
 ![Экран диалога](../../Images/Mockups/Dialog.png)  
-Экран профиля.	 
+Экран профиля.  
 ![Экран профиля](../../Images/Mockups/Profile.png)  
 Экран друзей.  
 ![Экран друзей](../../Images/Mockups/Friends.png)  
