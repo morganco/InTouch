@@ -190,7 +190,6 @@
 <a name="non-functional_requirements"/>
 
 ## 3.2 Нефункциональные требования
-* Наличие смартфона
 * Интернет соединение
 
 <a name="quality_attributes"/>
