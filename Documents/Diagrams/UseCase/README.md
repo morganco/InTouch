@@ -1,7 +1,7 @@
 # Поток событий
 ---
 
-![UseCase](../Diagrams/UseCase.png)
+![UseCase](https://raw.githubusercontent.com/y-harkavik/InTouch/master/Documents/Diagrams/UseCase/UseCase.png)
 
 # Содержание
 1 [Актёры](#1) <br>
