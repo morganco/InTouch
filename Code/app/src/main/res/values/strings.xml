@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">InTouch</string>
+    <string name="app_name">Keep In Touch</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="messages">Messages</string>
+    <string name="login">Log In</string>
+    <string name="friends">Friends</string>
+
+    <integer name="com_vk_sdk_AppId">6488442</integer>
+    <string name="com_vk_sdk_ApiVersion">5.38</string>
+    <string name="internet_connection_error_message">Some problems with Internet connection. Check your internet connection and try to log in again.</string>
+    <string name="internet_connection_error_title">Internet connection error</string>
+    <string name="send">SEND</string>
+    <string name="enter_message_hint">Enter message</string>
+
 </resources>
