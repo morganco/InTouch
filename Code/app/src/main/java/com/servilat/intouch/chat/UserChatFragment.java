@@ -1,4 +1,4 @@
-package com.servilat.intouch.fragment;
+package com.servilat.intouch.chat;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -17,11 +17,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.servilat.intouch.Message;
 import com.servilat.intouch.R;
-import com.servilat.intouch.User;
 import com.servilat.intouch.Util;
-import com.servilat.intouch.adapter.UserChatAdapter;
 import com.vk.sdk.api.VKApiConst;
 import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKParameters;

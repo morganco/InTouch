@@ -1,4 +1,4 @@
-package com.servilat.intouch.item;
+package com.servilat.intouch.dialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;

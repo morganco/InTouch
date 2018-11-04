@@ -1,4 +1,4 @@
-package com.servilat.intouch;
+package com.servilat.intouch.chat;
 
 import java.io.Serializable;
 

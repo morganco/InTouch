@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ import java.util.Arrays;
 
 import static com.servilat.intouch.Util.showAlertMessage;
 
-public class LoginVKFragment extends Fragment implements View.OnClickListener {
+public class LoginVkFragment extends Fragment implements View.OnClickListener {
     private String[] vkScope = {VKScope.MESSAGES, VKScope.OFFLINE, VKScope.STATUS};
 
     @Nullable
@@ -68,6 +69,7 @@ public class LoginVKFragment extends Fragment implements View.OnClickListener {
                 ((MainActivity) getActivity()).vkRequestForHeader();
                 getActivity().getSupportFragmentManager().popBackStack();
                 ((MainActivity) getActivity()).showUserDialogs();
+                ((DrawerLayout) getActivity().findViewById(R.id.drawer_layout)).setDrawerLockMode(DrawerLayout.LOCK_MODE_UNDEFINED);
             }
 
             @Override

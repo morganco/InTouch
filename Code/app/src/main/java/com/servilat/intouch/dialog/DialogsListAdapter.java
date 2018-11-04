@@ -1,4 +1,4 @@
-package com.servilat.intouch.adapter;
+package com.servilat.intouch.dialog;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.servilat.intouch.R;
-import com.servilat.intouch.item.DialogsItem;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

@@ -14,8 +14,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.servilat.intouch.fragment.DialogsListFragment;
-import com.servilat.intouch.login.LoginVKFragment;
+import com.servilat.intouch.dialog.DialogsListFragment;
+import com.servilat.intouch.friends.FriendListFragment;
+import com.servilat.intouch.login.LoginVkFragment;
 import com.squareup.picasso.Picasso;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKSdk;
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setBackgroundColor(getResources().getColor(R.color.colorVk));
-
         drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setItemIconTintList(null);
 
         if (!VKSdk.isLoggedIn()) {
-            visibleFragment = new LoginVKFragment();
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            visibleFragment = new LoginVkFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frame_layout, visibleFragment, "visible_fragment");
             fragmentTransaction.addToBackStack(null);
@@ -77,6 +78,14 @@ public class MainActivity extends AppCompatActivity
             vkRequestForHeader();
         }
     }
+/*
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+*/
 
     @Override
     public void onBackPressed() {
@@ -95,18 +104,25 @@ public class MainActivity extends AppCompatActivity
         visibleFragment = null;
         switch (id) {
             case R.id.nav_friends:
+                showUserFriends();
                 break;
             case R.id.nav_messages:
-                if (!VKSdk.isLoggedIn()) {
-                    visibleFragment = new LoginVKFragment();
-                } else {
-                    showUserDialogs();
-                }
+                showUserDialogs();
                 break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showUserFriends() {
+        FriendListFragment friendListFragment = new FriendListFragment();
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, friendListFragment, "visible_friends");
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        fragmentTransaction.commit();
     }
 
 
@@ -141,12 +157,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void fillNavigationDrawerHeader(String fullName, String status, String photo) {
-        ((TextView) findViewById(R.id.nav_user_name)).setText(fullName);
-        ((TextView) findViewById(R.id.nav_user_status)).setText(status);
+        View header = ((NavigationView) findViewById(R.id.nav_view)).getHeaderView(0);
+        ((TextView) header.findViewById(R.id.nav_user_name)).setText(fullName);
+        ((TextView) header.findViewById(R.id.nav_user_status)).setText(status);
         Picasso.with(getApplicationContext())
                 .load(photo)
                 .placeholder(R.drawable.placeholder_person)
                 .error(R.drawable.placeholder_person)
-                .into((ImageView) findViewById(R.id.nav_user_photo));
+                .into((ImageView) header.findViewById(R.id.nav_user_photo));
     }
 }

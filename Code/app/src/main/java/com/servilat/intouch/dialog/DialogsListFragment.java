@@ -1,13 +1,16 @@
-package com.servilat.intouch.fragment;
+package com.servilat.intouch.dialog;
 
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +21,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.servilat.intouch.Message;
 import com.servilat.intouch.R;
-import com.servilat.intouch.User;
+import com.servilat.intouch.chat.Message;
+import com.servilat.intouch.chat.User;
 import com.servilat.intouch.Util;
-import com.servilat.intouch.adapter.DialogsListAdapter;
-import com.servilat.intouch.item.DialogsItem;
+import com.servilat.intouch.chat.UserChatFragment;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKParameters;
@@ -62,10 +64,16 @@ public class DialogsListFragment extends ListFragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        ((Toolbar) getActivity().findViewById(R.id.toolbar)).setTitle(R.string.messages);
+        ((NavigationView) getActivity().findViewById(R.id.nav_view)).setCheckedItem(R.id.nav_messages);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = null;
 
-        setHasOptionsMenu(true);
         getActivity().findViewById(R.id.toolbar).setBackgroundColor(context.getResources().getColor(R.color.colorVk));
 
         fragment = this;
