@@ -18,5 +18,13 @@
     <string name="enter_message_hint">Enter message</string>
     <string name="delete">Delete</string>
     <string name="blacklist">Black list</string>
+    <string name="birthday">Birthday:</string>
+    <string name="city">City:</string>
+    <string name="languages">Languages:</string>
+    <string name="profile_user_id">ID:</string>
+    <string name="hometown">Hometown:</string>
+    <string name="phone_number">Phone number:</string>
+    <string name="write_message">Write message</string>
+    <string name="user_profile">Profile</string>
 
 </resources>

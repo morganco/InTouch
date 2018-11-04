@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_user_photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/profile_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/profile_user_photo"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/profile_user_photo"
+        android:text="Alex Mairyn"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/profile_user_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_user_name"
+        android:layout_alignStart="@id/profile_user_name"
+        android:layout_marginTop="@dimen/profile_elements_margin"
+
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/profile_user_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_user_photo"
+        android:layout_alignStart="@id/profile_user_photo"
+
+        android:layout_marginTop="@dimen/profile_elements_margin"
+        android:text="@string/birthday"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/profile_user_home_town"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_user_birthday"
+        android:layout_alignStart="@id/profile_user_photo"
+
+        android:layout_marginTop="@dimen/profile_elements_margin"
+        android:text="@string/hometown"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/profile_user_languages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_user_home_town"
+        android:layout_alignStart="@id/profile_user_photo"
+
+        android:layout_marginTop="@dimen/profile_elements_margin"
+        android:text="@string/languages"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/profile_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_user_languages"
+        android:layout_alignStart="@id/profile_user_photo"
+
+        android:layout_marginTop="@dimen/profile_elements_margin"
+        android:text="@string/profile_user_id"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/profile_user_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_user_id"
+        android:layout_alignStart="@id/profile_user_photo"
+
+        android:layout_marginTop="@dimen/profile_elements_margin"
+        android:text="@string/city"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/profile_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_user_city"
+        android:layout_alignStart="@id/profile_user_photo"
+
+        android:layout_marginTop="@dimen/profile_elements_margin"
+        android:text="@string/phone_number"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/write_message_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/profile_user_photo"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/oval_button"
+        android:backgroundTint="@color/colorGrey"
+        android:text="@string/write_message" />
+</RelativeLayout>

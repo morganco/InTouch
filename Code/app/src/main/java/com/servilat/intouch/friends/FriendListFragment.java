@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -17,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.servilat.intouch.R;
+import com.servilat.intouch.profile.UserProfileFragment;
 import com.vk.sdk.api.VKApi;
 import com.vk.sdk.api.VKApiConst;
 import com.vk.sdk.api.VKParameters;
@@ -27,7 +29,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -183,27 +184,19 @@ public class FriendListFragment extends ListFragment {
     }
 
     void showUserProfile(int position) {
-        /*UserChatFragment dialogsListFragment = new UserChatFragment();
+        UserProfileFragment userProfileFragment = new UserProfileFragment();
 
-        FriendItem dialogsItem = friendItems.get(position);
+        FriendItem friendItem = adapter.getItem(position);
 
         Bundle bundle = new Bundle();
-        bundle.putSerializable("CURRENT_USER_ID", new User(
-                "",
-                "",
-                VKAccessToken.currentToken().userId));
+        bundle.putString("USER_ID", friendItem.getUserID());
 
-        bundle.putSerializable(UserChatFragment.CURRENT_USER_ID_DIALOG_WITH, new User(
-                dialogsItem.getImageURL(),
-                dialogsItem.getDialogName(),
-                dialogsItem.getUserID()));
-
-        dialogsListFragment.setArguments(bundle);
+        userProfileFragment.setArguments(bundle);
 
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout, dialogsListFragment, "visible_dialog");
+        fragmentTransaction.replace(R.id.frame_layout, userProfileFragment, "visible_profile");
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        fragmentTransaction.commit();*/
+        fragmentTransaction.commit();
     }
 }
