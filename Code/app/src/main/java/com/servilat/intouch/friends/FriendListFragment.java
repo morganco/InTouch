@@ -6,7 +6,9 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ListFragment;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -32,6 +34,13 @@ public class FriendListFragment extends ListFragment {
     private int friendsCount;
     private int friendsOffset;
     private static final int COUNT = 15;
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getActivity().getMenuInflater();
+        inflater.inflate(R.menu.friends_context_menu, menu);
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -94,6 +103,7 @@ public class FriendListFragment extends ListFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ListView listView = getListView();
+        registerForContextMenu(listView);
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             private int preLast;
 

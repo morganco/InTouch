@@ -16,5 +16,7 @@
     <string name="internet_connection_error_title">Internet connection error</string>
     <string name="send">SEND</string>
     <string name="enter_message_hint">Enter message</string>
+    <string name="delete">Delete</string>
+    <string name="blacklist">Black list</string>
 
 </resources>
