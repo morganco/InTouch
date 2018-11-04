@@ -9,9 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.servilat.intouch.R;
@@ -25,7 +27,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.AbstractCollection;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FriendListFragment extends ListFragment {
     private Context context;
@@ -40,6 +44,39 @@ public class FriendListFragment extends ListFragment {
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater inflater = getActivity().getMenuInflater();
         inflater.inflate(R.menu.friends_context_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()) {
+            case R.id.menu_delete:
+                VKRequest deleteFriendRequest = VKApi.friends().delete(VKParameters.from(
+                        VKApiConst.USER_ID, adapter.getItem(info.position).getUserID()));
+                deleteFriendRequest.executeWithListener(new VKRequest.VKRequestListener() {
+                    @Override
+                    public void onComplete(VKResponse response) {
+                        super.onComplete(response);
+                        adapter.remove(adapter.getItem(info.position));
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+                return true;
+            case R.id.menu_blacklist:
+                VKRequest banFriendRequest = new VKRequest("account.ban", VKParameters.from(
+                        VKApiConst.OWNER_ID, adapter.getItem(info.position).getUserID()));
+                banFriendRequest.executeWithListener(new VKRequest.VKRequestListener() {
+                    @Override
+                    public void onComplete(VKResponse response) {
+                        super.onComplete(response);
+                        adapter.remove(adapter.getItem(info.position));
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
     }
 
     @Override
@@ -58,7 +95,7 @@ public class FriendListFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         friendsOffset = 0;
-        ArrayList<FriendItem> friendItems = new ArrayList<>();
+        List<FriendItem> friendItems = new ArrayList<>();
 
         adapter = new FriendListAdapter(friendItems, context);
         setListAdapter(adapter);
@@ -169,5 +206,4 @@ public class FriendListFragment extends ListFragment {
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         fragmentTransaction.commit();*/
     }
-
 }

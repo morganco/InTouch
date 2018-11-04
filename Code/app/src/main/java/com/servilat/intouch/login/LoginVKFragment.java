@@ -30,7 +30,7 @@ import java.util.Arrays;
 import static com.servilat.intouch.Util.showAlertMessage;
 
 public class LoginVkFragment extends Fragment implements View.OnClickListener {
-    private String[] vkScope = {VKScope.MESSAGES, VKScope.OFFLINE, VKScope.STATUS};
+    private String[] vkScope = {VKScope.MESSAGES, VKScope.OFFLINE, VKScope.STATUS, VKScope.FRIENDS};
 
     @Nullable
     @Override

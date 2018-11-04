@@ -12,14 +12,13 @@ import android.widget.TextView;
 import com.servilat.intouch.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FriendListAdapter extends ArrayAdapter<FriendItem> {
     Context context;
     List<FriendItem> friendItems;
 
-    public FriendListAdapter(ArrayList<FriendItem> friendItems, Context context) {
+    public FriendListAdapter(List<FriendItem> friendItems, Context context) {
         super(context, R.layout.message_item_layout, friendItems);
         this.context = context;
         this.friendItems = friendItems;
