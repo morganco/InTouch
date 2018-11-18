@@ -5,3 +5,4 @@ InTouch is a mobile application designed for VK usage.
 ### Diagrams: ([Ru](/Documents/Diagrams/README.md))
 ### Application: ([Code](/Code/app/src/main/java/com/servilat/intouch))
 ### Test plan: ([Ru](/Testing/TestPlan.md))
+### Test results: ([Ru](/Testing/TestResults.md))
